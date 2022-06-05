@@ -1,24 +1,90 @@
-import logo from './logo.svg';
 import './App.css';
+import React from "react";
+import Projectline from './Components/Project-line/Projectline';
+import Pinknav from "./Components/Pinknav/pinknav-right";
+
+
+
+
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <>
+          <header>
+
+              <Pinknav
+
+                  title='Welkom User'
+                  />
+
+          </header>
+
+          <div className= 'inner-container-left'>
+              <h1> Dashboard </h1>
+              <h2> Overzicht Projecten</h2>
+          </div>
+
+          <section className="inner-container-left project-overzicht">
+
+              <Projectline
+                  title="Titel van het project van het project"
+                 />
+
+              <Projectline
+                  title="Titel van het project van het project  2"
+              />
+
+              <Projectline
+                  title="Titel van het project van het project  3"
+              />
+
+              <Projectline
+                  title="Titel van het project van het project"
+              />
+
+              <Projectline
+                  title="Titel van het project van het project  2"
+              />
+
+              <Projectline
+                  title="Titel van het project van het project  3"
+              />
+
+              <Projectline
+                  title="Titel van het project van het project"
+              />
+
+              <Projectline
+                  title="Titel van het project van het project  2"
+              />
+
+              <Projectline
+                  title="Titel van het project van het project  3"
+              />
+
+              <Projectline
+                  title="Titel van het project van het project"
+              />
+
+              <Projectline
+                  title="Titel van het project van het project  2"
+              />
+
+              <Projectline
+                  title="Titel van het project van het project  3"
+              />
+
+
+
+
+
+
+
+
+          </section>
+      </>
   );
 }
 
