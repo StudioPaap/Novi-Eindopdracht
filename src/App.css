@@ -1,44 +1,11 @@
-header{
+header {
     display: flex;
     flex-direction: row;
     justify-content: end;
 
 }
-.pink-nav{
-    background-color: var(--color-pink);
-    padding: 50px 100px 50px;
-    flex-basis: 500px;
-    flex-shrink: 2;
-    border-radius: 20px 0px 0px 20px;
-    -webkit-box-shadow: -7px 10px 29px 8px rgba(244,154,193,0.79);
-    box-shadow: -7px 10px 29px 8px rgba(244,154,193,0.79);
-    position: fixed;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-}
-.pink-nav h1{
-    color: white;
-    size: 1rem;
-}
-
-.pink-nav button {
-    border: none;
-    background-color: var(--color-light-pink);
-    color: white;
-    font-weight: bold;
-    padding: 10px 20px;
-    border-radius: 10px;
-    margin-top:300px;
-
-}
-.foto-container{
-    flex-basis: 200px;
-    padding-top: 100px;
-}
 
 .project-overzicht{
     margin-top: 50px;
 }
-
 

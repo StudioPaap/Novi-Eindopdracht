@@ -34,12 +34,11 @@ h2{
     flex-basis: 800px;
     margin-left: 50px;
     margin-right: 450px;
-    border: orange solid 2px;
+
 }
 
 .inner-container-right{
     flex-basis: 800px;
     margin-right: 50px;
     margin-left: 450px;
-    border: orange solid 2px;
 }

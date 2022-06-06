@@ -1,0 +1,49 @@
+
+header {
+display: flex;
+    justify-content: start;
+
+}
+.header-inlog {
+    padding-top: 100px;
+    font-size: 28px;
+
+}
+.inlog {
+   min-height: 600px;
+}
+
+form{
+    margin-top: 30px;
+}
+
+form label{
+    color: var(--color-pink);
+    font-weight: bold;
+    font-size: 20px;
+
+}
+form input{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-light-pink);
+    border: none;
+    width: 400px;
+    height: 30px;
+    border-radius: 5px;
+    margin-bottom: 25px;
+}
+
+button{
+    background-color: var(--color-pink);
+    color: white;
+    padding: 10px 40px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 7px 4px 15px 4px rgba(244, 154, 193, 0.79);
+    font-weight: bold;
+    margin-top: 100px;
+    margin-bottom: 20px;
+
+}
+

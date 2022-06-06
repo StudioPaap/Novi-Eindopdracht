@@ -1,0 +1,37 @@
+header{
+    display: flex;
+    border: #4f2944 solid 2px;
+    justify-content: end;
+}
+
+.register{
+    padding-top: 50px;
+}
+
+.registration form{
+    border: black solid 2px;
+
+}
+
+.twoInputField{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.twoInputField input{
+   width: 400px;
+
+}
+
+.checkbox-row{
+    display: flex;
+    max-width: 400px;
+    justify-content: start;
+}
+
+.checkbox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

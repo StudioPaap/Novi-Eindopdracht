@@ -1,90 +1,34 @@
 import './App.css';
 import React from "react";
-import Projectline from './Components/Project-line/Projectline';
-import Pinknav from "./Components/Pinknav/pinknav-right";
-
-
-
-
+import {Switch, Route} from 'react-router-dom';
+import InlogPage from "./Pages/Inlog/InlogPage";
+import DashboardPage from "./Pages/Dashboard/DashboardPage";
+import RegisterPage from "./Pages/Register/RegisterPage";
 
 
 
 function App() {
   return (
-      <>
-          <header>
+<>
+  <Switch>
+    <Route exact path="/">
+      <DashboardPage/>
+    </Route>
+    <Route path="/inlog">
+      <InlogPage/>
+    </Route>
+    <Route path="/registreer">
+      <RegisterPage/>
+    </Route>
 
-              <Pinknav
-
-                  title='Welkom User'
-                  />
-
-          </header>
-
-          <div className= 'inner-container-left'>
-              <h1> Dashboard </h1>
-              <h2> Overzicht Projecten</h2>
-          </div>
-
-          <section className="inner-container-left project-overzicht">
-
-              <Projectline
-                  title="Titel van het project van het project"
-                 />
-
-              <Projectline
-                  title="Titel van het project van het project  2"
-              />
-
-              <Projectline
-                  title="Titel van het project van het project  3"
-              />
-
-              <Projectline
-                  title="Titel van het project van het project"
-              />
-
-              <Projectline
-                  title="Titel van het project van het project  2"
-              />
-
-              <Projectline
-                  title="Titel van het project van het project  3"
-              />
-
-              <Projectline
-                  title="Titel van het project van het project"
-              />
-
-              <Projectline
-                  title="Titel van het project van het project  2"
-              />
-
-              <Projectline
-                  title="Titel van het project van het project  3"
-              />
-
-              <Projectline
-                  title="Titel van het project van het project"
-              />
-
-              <Projectline
-                  title="Titel van het project van het project  2"
-              />
-
-              <Projectline
-                  title="Titel van het project van het project  3"
-              />
+  </Switch>
 
 
 
 
+</>
 
 
-
-
-          </section>
-      </>
   );
 }
 
