@@ -31,14 +31,15 @@ h2{
 
 /* ---------- Layout ----------*/
 .inner-container-left{
-    flex-basis: 800px;
+    flex-basis: 700px;
     margin-left: 50px;
-    margin-right: 450px;
+    margin-right: 35%;
+
 
 }
 
 .inner-container-right{
-    flex-basis: 800px;
+    flex-basis: 700px;
     margin-right: 50px;
     margin-left: 450px;
 }

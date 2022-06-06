@@ -2,6 +2,10 @@ import React from "react";
 import Pinknav from "../../Components/Pinknav/pinknav-right";
 import "./register.css"
 import { useForm } from 'react-hook-form';
+import FormFieldText from "../../Components/formfield text/form field text";
+import ButtonRadio from "../../Components/Buttons/button radio/button-radio";
+import ButtonBasic from "../../Components/Buttons/button";
+import {Link} from "react-router-dom";
 
 
 function RegisterPage() {
@@ -19,99 +23,72 @@ function RegisterPage() {
                     <form>
 
                         <div className="twoInputField">
-                        <label htmlFor="name-field">
-                            Voornaam:
-                            <input
+                            <FormFieldText
                                 type="text"
-                                id="name-field"
-                                name="voornaam"
+                                title="Voornaam:"
+                                id="name"
+                                name="name"
                             />
-                        </label>
 
-                        <label htmlFor="surname-field">
-                            Achternaam:
-                            <input
+                            <FormFieldText
                                 type="text"
-                                id="surname-field"
-                                name="Achternaam"
+                                title="Achternaam:"
+                                id="surname"
+                                name="surname"
                             />
-                        </label>
-                        </div>
-                        <label htmlFor="email-field">
-                            Email-adres:
-                            <input
-                                type="text"
-                                id="email-field"
-                                name="email"
-                            />
-                        </label>
-
-                        <label htmlFor="password-field">
-                          Wachtwoord:
-                            <input
-                                type="password"
-                                id="password-field"
-                                name="Password"
-                            />
-                        </label>
-
-                        <label htmlFor="password-field">
-                            Wachtwoord herhalen:
-                            <input
-                                type="password"
-                                id="password-field"
-                                name="Password"
-                            />
-                        </label>
-
-                        <label htmlFor="password-field">
-                          Functie binnen D&B:
-                        </label>
-
-                        <div className="checkbox-row inner-container-left">
-
-                         <div className="check-box">
-                        <label htmlFor="Studio">
-                            Studio
-                            <input
-                                type="checkbox"
-                                value="Studio"
-                                id="Studio"
-                                name="Password"
-                            />
-                        </label>
-                         </div>
-
-                            <label htmlFor="Eventmanagero">
-                            Eventmanager
-                            <input
-                                type="checkbox"
-                                value="Eventmanager"
-                                id="password-field"
-                                name="Password"
-                            />
-                        </label>
-
-                        <label htmlFor="Eventmanagero">
-                           Creative
-                            <input
-                                type="checkbox"
-                                value="Creative"
-                                id="password-field"
-                                name="Creative"
-                            />
-                        </label>
-                        <label htmlFor="Sales">
-                            Sales
-                            <input
-                                type="checkbox"
-                                value="Sales"
-                                id="password-field"
-                                name="Sales"
-                            />
-                        </label>
                         </div>
 
+                        <FormFieldText
+                        type="email"
+                        title="E-mail:"
+                        id="email"
+                        name="email"
+                        />
+
+                        <FormFieldText
+                            type="password"
+                            title="Wachtwoord:"
+                            id="password"
+                            name="password"
+                        />
+
+
+                        <FormFieldText
+                            type="password"
+                            title="Herhaal Wachtwoord:"
+                            id="password2"
+                            name="password2"
+                        />
+<div className="Titelbuttonrow">
+                        <label> Welke functie binnen D&B heb je?</label>
+<div className="buttonrow">
+
+
+<ButtonRadio
+title="Creative"/>
+
+<ButtonRadio
+title="Studio"/>
+
+ <ButtonRadio
+title="Sales"/>
+
+    <ButtonRadio
+        title="Eventmanager"/>
+
+
+</div>
+</div>
+
+     <div className="button-register">
+         <Link to = "/inlog">
+<ButtonBasic
+    title="Registreer mij"
+    type="submit"
+    id="Register"
+    />
+         </Link>
+                    </div>
                     </form>
                 </section>
             </>

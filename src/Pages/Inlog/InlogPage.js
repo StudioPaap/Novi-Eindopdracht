@@ -3,6 +3,8 @@ import "./inlogpage.css"
 import PinknavLeft from "../../Components/Pinknav/pinknav-left";
 import { useForm } from 'react-hook-form';
 import {Link} from "react-router-dom";
+import FormFieldText from "../../Components/formfield text/form field text";
+import ButtonBasic from "../../Components/Buttons/button";
 
 function InlogPage(){
     const { register, handleSubmit } = useForm();
@@ -20,31 +22,31 @@ function InlogPage(){
             </header>
             <section className='inner-container-right registration'>
                 <form onSubmit={handleSubmit(onFormSubmit)}>
-                    <label htmlFor="email-field">
-                        E-mailadres:
-                        <input
-                            type="email"
-                            id="email-field"
-                            name="email"
-                            {...register("email")}
-                        />
-                    </label>
 
-                    <label htmlFor="password-field">
-                        Wachtwoord:
-                        <input
-                            type="password"
-                            id="password-field"
-                            name="password"
-                            {...register("password")}
+                    <FormFieldText
+                    type="email"
+                    title="E-mail:"
+                    name="e-mail"
+                    id="e-mail"
+                    {...register("email")}
                         />
-                    </label>
-                    <button
+
+                    <FormFieldText
+                        type="password"
+                        title="Wachtwoord"
+                        name="password"
+                        id="password"
+                        {...register("password")}
+                    />
+
+                    <Link to="/">
+
+                    <ButtonBasic
+                        title="Inloggen"
                         type="submit"
-                        className="form-button"
-                    >
-                        Inloggen
-                    </button>
+                        />
+                    </Link>
+
                 </form>
                 <p>Heb je nog geen account? <Link to="/registreer">Registreer</Link> je dan eerst.</p>
             </section>

@@ -1,6 +1,5 @@
 header{
     display: flex;
-    border: #4f2944 solid 2px;
     justify-content: end;
 }
 
@@ -8,30 +7,18 @@ header{
     padding-top: 50px;
 }
 
-.registration form{
-    border: black solid 2px;
+
+.Titelbuttonrow{
+    margin-top: 30px;
 
 }
-
-.twoInputField{
+.buttonrow{
     display: flex;
     justify-content: space-between;
+    margin-top: 10px;
 
 }
 
-.twoInputField input{
-   width: 400px;
-
-}
-
-.checkbox-row{
-    display: flex;
-    max-width: 400px;
-    justify-content: start;
-}
-
-.checkbox{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.button-register{
+    margin-top: 30px;
 }

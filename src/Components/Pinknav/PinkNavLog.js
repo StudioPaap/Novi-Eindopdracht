@@ -2,15 +2,16 @@ import React from "react";
 import logo from "./Logo-w.png"
 import "./pinknav.css"
 
-function PinknavLeft() {
+function PinknavLog() {
     return(
         <div className= 'pink-nav-left inlog'>
 
             <img className='foto-container' src= {logo}/>
+            <h2>Algemeen</h2>
 
         </div>
     )
 }
 
 
-export default PinknavLeft
+export default  PinknavLog;

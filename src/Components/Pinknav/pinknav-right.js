@@ -7,8 +7,8 @@ function Pinknav({title}) {
     <div className= 'pink-nav'>
         <h1> {title} </h1>
         <img className='foto-container' src= {logo}/>
-        <button>Nieuw Project</button>
     </div>
+
 )
 }
 
