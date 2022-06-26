@@ -4,7 +4,7 @@ import "./pinknav.css"
 import ButtonBasic from "../Buttons/button";
 import {Link} from "react-router-dom";
 
-function Pinknavbutton({title}) {
+export default function Pinknavbutton({title}) {
     return(
         <div className= 'pink-nav'>
             <h1> {title} </h1>
@@ -22,4 +22,5 @@ function Pinknavbutton({title}) {
 }
 
 
-export default Pinknavbutton
+
+

@@ -10,6 +10,7 @@ function ButtonBasic({title, link, type}){
         id={title}
         name={title}
         type={type}
+
         >
             {title}
         </button>

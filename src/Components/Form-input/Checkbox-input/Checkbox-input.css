@@ -1,0 +1,84 @@
+
+.radio{
+    display: flex;
+}
+
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-size: 16px;
+    color: var(--color-pink);
+    font-weight: normal;
+
+}
+
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: var(--color-grey);
+}
+
+.container input:checked ~ .checkmark {
+    background-color: var(--color-purple);
+}
+
+.container input:hover ~ .checkmark {
+    background-color: var(--color-dark-grey);
+}
+
+
+
+h4{
+    font-size: 16px;
+}
+.input-row-check{
+    margin-bottom: 20px;
+
+}
+.layout-check {
+    max-width: 800px;
+    display: grid;
+    grid-template-columns: 30% 30% 10% 12%;
+    grid-column-gap: 6%;
+    color: var(--color-pink);
+    height: auto;
+
+
+}
+
+
+.col1 {
+    padding-left: 35px;
+}
+
+.col2 input{
+    width: 100%;
+    margin: 0px;
+}
+
+.col3 input{
+    width: 100%;
+}
+.col4 {
+    display: flex;
+    justify-content: end;
+}

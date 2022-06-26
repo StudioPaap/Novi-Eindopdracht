@@ -1,0 +1,61 @@
+.form-body {
+    display: flex;
+}
+
+.twoInputField input {
+    width: 380px;
+
+}
+
+.twoInputField--checkbox {
+    display: flex;
+}
+
+.twoInputField--checkbox div {
+    margin-right: 20%;
+}
+
+.twoInputField--checkbox-textfield {
+    display: flex;
+}
+
+
+.twoInputField--checkbox-textfield {
+    display: flex;
+}
+
+.twoInputField--checkbox-textfield div {
+    margin-right: 15%;
+}
+
+input::placeholder {
+    color: white;
+}
+
+
+.form-body {
+    padding-bottom: 40px;
+}
+
+.counter {
+    background-color: #e20074;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: end;
+    width: 20%;
+    height: 100px;
+    border-radius: 5px;
+    padding-top: 10px;
+    margin-right: 50px;
+    padding-right: 30px;
+    color: white;
+    font-weight: bold;
+    box-shadow: 7px 4px 15px 4px rgba(244, 154, 193, 0.79);
+}
+
+.counter-area {
+    margin-left: 30px;
+}

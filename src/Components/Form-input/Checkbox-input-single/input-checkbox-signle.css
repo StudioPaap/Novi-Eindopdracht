@@ -1,0 +1,41 @@
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-size: 16px;
+    color: var(--color-pink);
+    font-weight: normal;
+
+}
+
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: var(--color-grey);
+}
+
+.container input:checked ~ .checkmark {
+    background-color: var(--color-purple);
+}
+
+.container input:hover ~ .checkmark {
+    background-color: var(--color-dark-grey);
+}
+

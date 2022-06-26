@@ -5,6 +5,8 @@ import InlogPage from "./Pages/Inlog/InlogPage";
 import DashboardPage from "./Pages/Dashboard/DashboardPage";
 import RegisterPage from "./Pages/Register/RegisterPage";
 import FormPage from "./Pages/Form/formPage";
+import Test from "./Pages/Test pagina/test";
+import ThanksPage from "./Pages/Thanks/ThanksPage";
 
 
 
@@ -24,6 +26,14 @@ function App() {
 
     <Route path="/bestellijst">
            <FormPage/>
+    </Route>
+
+    <Route path="/test">
+      <Test/>
+    </Route>
+
+    <Route path="/thanks">
+      <ThanksPage/>
     </Route>
 
   </Switch>

@@ -1,0 +1,16 @@
+.thanks{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.thanks img{
+    width: 300px;
+    margin-top: 50px;
+}
+.Button--beneden{
+    position: fixed;
+    bottom: 100px;
+    left: 50px;
+
+}

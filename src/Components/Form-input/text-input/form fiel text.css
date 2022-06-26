@@ -9,7 +9,7 @@
 
 }
 
-input{
+input {
     display: flex;
     flex-direction: column;
     background-color: var(--color-light-pink);
@@ -18,11 +18,14 @@ input{
     height: 30px;
     border-radius: 5px;
     margin-bottom: 25px;
+    padding-left: 10px;
 }
+
 
 input:focus{
     background-color: var(--color-purple);
     color: white;
+
 }
 
 label {

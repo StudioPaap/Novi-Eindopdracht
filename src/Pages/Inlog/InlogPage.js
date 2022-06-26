@@ -2,57 +2,78 @@ import React from "react";
 import "./inlogpage.css"
 import PinknavLeft from "../../Components/Pinknav/pinknav-left";
 import { useForm } from 'react-hook-form';
-import {Link} from "react-router-dom";
-import FormFieldText from "../../Components/formfield text/form field text";
+import {Link, useHistory} from "react-router-dom";
+import FormFieldText from "../../Components/Form-input/text-input/form field text";
 import ButtonBasic from "../../Components/Buttons/button";
 
 function InlogPage(){
-    const { register, handleSubmit } = useForm();
-    function onFormSubmit(data) {
-        console.log(data);
+    const {register, handleSubmit, formState:{errors}} = useForm()
+    const history = useHistory();
+
+    function onFormSubmit(data){
+        console.log(data)
+        history.push("/")
+
+
     }
+
+
+
     return(
         <>
-        <PinknavLeft/>
+        <form onSubmit={handleSubmit(onFormSubmit)}>
 
-            <header className='inner-container-right header-inlog'>
-                <div>
-                  <h1> Inloggen</h1>
-                 </div>
-            </header>
-            <section className='inner-container-right registration'>
-                <form onSubmit={handleSubmit(onFormSubmit)}>
+        <label htmlFor="Email">
+            Email:
+            <input
+            type="email"
+            id="Email"
+                {...register("Email",{
+                    required:{
+                        value:true,
+                        message: "Dit veld is verplicht"
+                    },
 
-                    <FormFieldText
-                    type="email"
-                    title="E-mail:"
-                    name="e-mail"
-                    id="e-mail"
-                    {...register("email")}
-                        />
+            })}/>
+            {errors.Email && <p>{errors.Email.message}</p> }
+        </label>
 
-                    <FormFieldText
-                        type="password"
-                        title="Wachtwoord"
-                        name="password"
-                        id="password"
-                        {...register("password")}
-                    />
+            <label htmlFor="password">
+               Wachtwoord:
+                <input
+                    type="password"
+                    id="password"
+                    {...register("password",
+                        {
+                            minLength:
+                                {
+                                    value: 8,
+                                    message:"Je wachtwoord is min. 8 tekens lang",
+                                },
+                        })}/>
+                {errors.password && <div className="Message--error"><p>{errors.password.message}</p></div> }
+            </label>
 
-                    <Link to="/">
 
-                    <ButtonBasic
-                        title="Inloggen"
-                        type="submit"
-                        />
-                    </Link>
+            <button
+                type="submit"
+            >
+                versturen
+            </button>
 
-                </form>
-                <p>Heb je nog geen account? <Link to="/registreer">Registreer</Link> je dan eerst.</p>
-            </section>
-        </>
+
+        </form>
+
+    <p>Heb je nog geen account? <Link to="/registreer">Registreer</Link> je dan eerst.</p>
+    </>
+
+
+
     )
+}
 
-};
+
+
+
 
 export default InlogPage
