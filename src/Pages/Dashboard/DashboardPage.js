@@ -4,13 +4,18 @@ import React, {useContext}from "react";
 import "./Dashboard.css";
 import Pinknavbutton from "../../Components/Pinknav/Pinknav-button";
 import {AuthContext} from "../../context/AuthContext";
-import FormPage from "../Form/formPage";
 
 
 
 function DashboardPage() {
+
+
     const { username } = useContext(AuthContext);
     const formName = localStorage.getItem("FormProjectnaam")
+    const formDate = localStorage.getItem("FormDate")
+
+
+
 
     return (
 
@@ -28,27 +33,18 @@ function DashboardPage() {
     <section className="project-overzicht">
 
         <Projectline
-            title={formName}
+            title= {formName}
+            datum={formDate}
         />
 
         <Projectline
-            title="Titel van het project van het project  2"
+            title="Project Wouterse"
+            datum="02-10-2023"
         />
 
         <Projectline
-            title="Titel van het project van het project  3"
-        />
-
-        <Projectline
-            title="Titel van het project van het project"
-        />
-
-        <Projectline
-            title="Titel van het project van het project  2"
-        />
-
-        <Projectline
-            title="Titel van het project van het project  3"
+            title="Lely Open dag"
+            datum="04-07-2022"
         />
 
         <Projectline
@@ -63,17 +59,6 @@ function DashboardPage() {
             title="Titel van het project van het project  3"
         />
 
-        <Projectline
-            title="Titel van het project van het project"
-        />
-
-        <Projectline
-            title="Titel van het project van het project  2"
-        />
-
-        <Projectline
-            title="Titel van het project van het project  3"
-        />
 
     </section>
     </div>

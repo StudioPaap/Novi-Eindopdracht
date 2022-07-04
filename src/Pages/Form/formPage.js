@@ -27,8 +27,8 @@ function FormPage() {
         const SumHour = hourNumberArray.reduce((a, b) => a + b, 0)
         setHour(SumHour);
         localStorage.setItem("FormHour",SumHour);
-
         localStorage.setItem("FormProjectnaam",data.Projectnaam);
+        localStorage.setItem("FormDate",data.Date);
 
     }
 
@@ -77,8 +77,8 @@ function FormPage() {
                                 <FormFieldText
                                     type="text"
                                     title="Eventmanager:"
-                                    name="Eventmanager:"
-                                    id="Eventmanager:"
+                                    name="Eventmanager"
+                                    id="Eventmanager"
                                     register={register}
                                 />
                             </div>

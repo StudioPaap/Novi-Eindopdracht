@@ -14,11 +14,18 @@
 
 .project-title{
     display: flex;
-    flex-basis: 600px;
+    flex-basis: 80%
 
 }
 .project-title h3{
+
     margin-left: 20px;
+
+}
+
+.project-title h2{
+    margin-left: 30px;
+    color: var(--color-purple);
 
 }
 
