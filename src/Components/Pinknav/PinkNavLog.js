@@ -4,6 +4,7 @@ import "./pinknav.css"
 import Titlesection from "../Titlesection/Titlesection";
 import ButtonBasic from "../Buttons/button";
 import loadbar from"./loadbar300px.png";
+import Scrollindicator from "../scrollindicator/scrollindicator";
 
 function PinknavLog() {
     return (
@@ -32,8 +33,8 @@ function PinknavLog() {
                 <Titlesection
                     title="Details"/>
             </div>
-    <div className="load-log">
-        <img className="loadbar" src={loadbar} />
+    <div className="progressbar-container">
+        <Scrollindicator/>
     </div>
 </section>
 

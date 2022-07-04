@@ -1,108 +1,134 @@
-import React from "react";
-import Pinknav from "../../Components/Pinknav/pinknav-right";
-import "./register.css"
-import {useForm} from 'react-hook-form';
-import FormFieldText from "../../Components/Form-input/text-input/form field text";
-import ButtonRadio from "../../Components/Buttons/button radio/button-radio";
-import ButtonBasic from "../../Components/Buttons/button";
-import {Link} from "react-router-dom";
-
+import React, { useEffect, useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import axios from 'axios';
 
 function RegisterPage() {
-    const { register, handleSubmit } = useForm();
-    function onFormSubmit(data) {
-        console.log(data);
-    }
+    // state voor het formulier
+    const [email, setEmail] = useState('');
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [role, setRole] = useState(['']);
 
-    return (
+    // state voor functionaliteit
+    const [error, toggleError] = useState(false);
+    const [loading, toggleLoading] = useState(false);
+    const history = useHistory()
+        const source = axios.CancelToken.source();
+
+
+        useEffect(() => {
+            return function cleanup() {
+                source.cancel();
+            }
+        }, []);
+
+        async function handleSubmit(e) {
+            e.preventDefault();
+            toggleError(false);
+            toggleLoading(true);
+
+            try {
+                await axios.post('https://frontend-educational-backend.herokuapp.com/api/auth/signup', {
+                    email: email,
+                    password: password,
+                    username: username,
+                    role: role,
+                }, {
+                    cancelToken: source.token,
+                });
+
+                // als alles goed gegaan is, linken we dyoor naar de login-pagina
+                history.push('/inlog');
+            } catch (e) {
+                console.error(e);
+                toggleError(true);
+            }
+
+            toggleLoading(false);
+        }
+
+
+
+
+        return (
         <>
-            <header>
-                <Pinknav/>
-            </header>
-            <div className="inner-container-left">
-                <h1> Registreren</h1>
-            </div>
+            <h1>Registreren</h1>
 
-            <section className='inner-container-left registration'>
-                <form onBlur={handleSubmit(onFormSubmit)}>
-
-                    <div className="twoInputField">
-                        <FormFieldText
-                            type="text"
-                            title="Voornaam:"
-                            id="name"
-                            name="name"
-                            register={register}
-                        />
-
-                        <FormFieldText
-                            type="text"
-                            title="Achternaam:"
-                            id="surname"
-                            name="surname"
-                            register={register}
-                        />
-                    </div>
-
-                    <FormFieldText
+            <form onSubmit={handleSubmit}>
+                <label htmlFor="email-field">
+                    Emailadres:
+                    <input
                         type="email"
-                        title="E-mail:"
-                        id="email"
+                        id="email-field"
                         name="email"
-                        register={register}
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                     />
+                </label>
 
-                    <FormFieldText
+                <label htmlFor="username-field">
+                    Gebruikersnaam:
+                    <input
+                        type="text"
+                        id="username-field"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                    />
+                </label>
+
+                <label htmlFor="password-field">
+                    Wachtwoord:
+                    <input
                         type="password"
-                        title="Wachtwoord:"
-                        id="password"
+                        id="password-field"
                         name="password"
-                        register={register}
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
                     />
 
-
-                    <FormFieldText
-                        type="password"
-                        title="Herhaal Wachtwoord:"
-                        id="password2"
-                        name="password2"
-                        register={register}
-                    />
-                    <div className="Titelbuttonrow">
-                        <label> Welke functie binnen D&B heb je?</label>
-                        <div className="buttonrow">
-
-
-                            <ButtonRadio
-                                title="Creative"/>
-
-                            <ButtonRadio
-                                title="Studio"/>
-
-                            <ButtonRadio
-                                title="Sales"/>
-
-                            <ButtonRadio
-                                title="Eventmanager"/>
-
-
-                        </div>
-                    </div>
-
-                    <div className="button-register">
-                        <Link to="/inlog">
-                            <ButtonBasic
-                                title="Registreer mij"
-                                type="submit"
-                                id="Register"
+                    <div className="buttonrow">
+                        <label htmlFor= "Role-button">
+                            <input type="radio"
+                                   id="Role-button"
+                                   value= "user"
+                                   onChange={(e) => setRole(e.target.value)}
                             />
-                        </Link>
-                    </div>
-                </form>
-            </section>
-        </>
-    )
+                            <div className="box">
+                                <span>Projectmanager</span>
+                            </div>
+                        </label>
 
-};
+                        <label htmlFor= "Role-button2">
+                            <input type="radio"
+                                   id="Role-button2"
+                                   value="admin"
+                                   onChange={(e) => setRole(e.target.value)}
+                            />
+                            <div className="box">
+                                <span>Studio</span>
+                            </div>
+                        </label>
+
+
+
+                    </div>
+                </label>
+                {error && <p className="error">Dit account bestaat al. Probeer een ander emailadres.</p>}
+                <button
+                    type="submit"
+                    className="form-button"
+                    disabled={loading}
+                >
+                    Registreren
+                </button>
+
+            </form>
+
+            <p>Heb je al een account? Je kunt je <Link to="/inlog">hier</Link> inloggen.</p>
+        </>
+    );
+}
 
 export default RegisterPage;
+
+

@@ -7,6 +7,7 @@ import RegisterPage from "./Pages/Register/RegisterPage";
 import FormPage from "./Pages/Form/formPage";
 import Test from "./Pages/Test pagina/test";
 import ThanksPage from "./Pages/Thanks/ThanksPage";
+import Weather from "./Pages/Weather/Weather";
 
 
 
@@ -35,6 +36,11 @@ function App() {
     <Route path="/thanks">
       <ThanksPage/>
     </Route>
+
+    <Route path="/weer">
+      <Weather/>
+    </Route>
+
 
   </Switch>
 

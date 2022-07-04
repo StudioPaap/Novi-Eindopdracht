@@ -14,3 +14,10 @@
     left: 50px;
 
 }
+
+.compliment--text h2{
+    font-family: "American Typewriter";
+    text-align: center;
+    font-style: italic;
+    color: var(--color-pink);
+}

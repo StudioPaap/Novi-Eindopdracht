@@ -1,46 +1,23 @@
-import React, {useContext} from "react";
-import "./Test.css"
-import { useForm } from 'react-hook-form';
-import {useState} from "react";
-
+import React from 'react';
+import CheckboxRow1 from "../../Components/Checkbox--row/Checkbox--row";
 
 
 function Test(){
-    const [checked, setChecked] = React.useState(false);
-    const [counter, setCounter] = React.useState(0);
 
-    const handleChange = () => {
-        setChecked(!checked);
+    const formName = localStorage.getItem("FormProjectnaam")
+    console.log(formName)
+    const formHours = localStorage.getItem("FormHour")
 
-    };
+return(
+    <><h1>
+        {formName}
+    </h1>
 
-    const handleClick = (checked) =>{
-        if (checked === true){
-            setCounter(counter+2);
-        }
-    }
+<div>
 
-    return (
-        <div>
-            <label>
-
-                <input
-                    type="checkbox"
-                    checked={checked}
-                    value={4}
-                    onChange={handleChange}
-                    onClick={handleClick}
-                />
-                My Value
-            </label>
-
-            <p>Is "My Value" checked? {checked.toString()}</p>
-            <p>{counter}</p>
-        </div>
-    );
-};
-
-
-
-
-export default Test
+    <p>{formHours} uur in totaal voor </p>
+</div>
+    </>
+);
+}
+export default Test;

@@ -17,37 +17,32 @@ function ThanksPage() {
                 const result = await axios.get('https://complimentr.com/api');
                 const response = result.data.compliment;
                 setCompliment(response)
-                console.log(response)
+                console.log(response);
 
-
-            } catch (e) {
+            }
+            catch (e) {
                 console.error(e);
             }
 
         }
 
-
         fetchCompliment()
 
-    });
+    },[]);
 
     return (
         <>
-            <header>
-                <PinknavRight
+            <div className="body--flex">
 
-                    title='Thanks User'
-                />
+            <main className="inner-container-right thanks">
 
-            </header>
-
-            <main className="inner-container-left thanks">
-                {compliment && <>
-                    <h2>{compliment}</h2>
-                </> }
                 <h2>
+                    Bedankt!!
                     Hier een mooie boodschap voor jou :
                 </h2>
+                {compliment && <>
+                    <div className="compliment--text"> <h2>{compliment}</h2></div>
+                </> }
                 <img src={spiegel}/>;
 
                 <section className="Button--beneden">
@@ -60,6 +55,13 @@ function ThanksPage() {
 
 
             </main>
+                <div className="pink--right">
+                    <PinknavRight
+
+                        title='Thanks User'
+                    />
+                </div>
+            </div>
         </>
 
     )

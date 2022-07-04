@@ -88,7 +88,8 @@
     margin-top: 20px;
 }
 
-.load-log img{
-    max-width: 50px;
-    margin-left: 50px;
+.progressbar-container{
+    padding-left: 10px;
+
+
 }

@@ -1,79 +1,72 @@
-import React from "react";
-import "./inlogpage.css"
-import PinknavLeft from "../../Components/Pinknav/pinknav-left";
-import { useForm } from 'react-hook-form';
-import {Link, useHistory} from "react-router-dom";
-import FormFieldText from "../../Components/Form-input/text-input/form field text";
-import ButtonBasic from "../../Components/Buttons/button";
+import React, { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+import {AuthContext} from "../../context/AuthContext";
 
-function InlogPage(){
-    const {register, handleSubmit, formState:{errors}} = useForm()
-    const history = useHistory();
+function InlogPage() {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, toggleError] = useState(false);
+    const { login } = useContext(AuthContext);
 
-    function onFormSubmit(data){
-        console.log(data)
-        history.push("/")
+    async function handleSubmit(e) {
+        e.preventDefault();
+        toggleError(false);
 
+        try {
+            const result = await axios.post('https://frontend-educational-backend.herokuapp.com/api/auth/signin', {
+                email: email,
+                password: password,
+            });
 
+            console.log(result.data);
+            login(result.data.accessToken);
+
+        } catch(e) {
+            console.error(e);
+            toggleError(true);
+        }
     }
 
-
-
-    return(
+    return (
         <>
-        <form onSubmit={handleSubmit(onFormSubmit)}>
+            <h1>Inloggen</h1>
 
-        <label htmlFor="Email">
-            Email:
-            <input
-            type="email"
-            id="Email"
-                {...register("Email",{
-                    required:{
-                        value:true,
-                        message: "Dit veld is verplicht"
-                    },
+            <form onSubmit={handleSubmit}>
+                <label htmlFor="email-field">
+                    Emailadres:
+                    <input
+                        type="email"
+                        id="email-field"
+                        name="email"
+                        value={email}
+                        c
+                    />
+                </label>
 
-            })}/>
-            {errors.Email && <p>{errors.Email.message}</p> }
-        </label>
+                <label htmlFor="password-field">
+                    Wachtwoord:
+                    <input
+                        type="password"
+                        id="password-field"
+                        name="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                </label>
+                {error && <p className="error">Combinatie van emailadres en wachtwoord is onjuist</p>}
 
-            <label htmlFor="password">
-               Wachtwoord:
-                <input
-                    type="password"
-                    id="password"
-                    {...register("password",
-                        {
-                            minLength:
-                                {
-                                    value: 8,
-                                    message:"Je wachtwoord is min. 8 tekens lang",
-                                },
-                        })}/>
-                {errors.password && <div className="Message--error"><p>{errors.password.message}</p></div> }
-            </label>
+                <button
+                    type="submit"
+                    className="form-button"
+                >
+                    Inloggen
+                </button>
+            </form>
 
-
-            <button
-                type="submit"
-            >
-                versturen
-            </button>
-
-
-        </form>
-
-    <p>Heb je nog geen account? <Link to="/registreer">Registreer</Link> je dan eerst.</p>
-    </>
-
-
-
-    )
+            <p>Heb je nog geen account? <Link to="/registreer">Registreer</Link> je dan eerst.</p>
+        </>
+    );
 }
 
-
-
-
-
-export default InlogPage
+export default InlogPage;

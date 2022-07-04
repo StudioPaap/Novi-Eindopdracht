@@ -1,0 +1,11 @@
+
+.weather-result{
+    background-color: var(--color-purple);
+    border-radius: 10px;
+    padding:20px
+
+}
+
+.weather-result h1,h2 {
+    color: white;
+}

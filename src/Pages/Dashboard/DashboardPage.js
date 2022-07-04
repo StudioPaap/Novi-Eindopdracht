@@ -1,32 +1,34 @@
 import Pinknav from "../../Components/Pinknav/pinknav-right";
 import Projectline from "../../Components/Project-line/Projectline";
-import React from "react";
+import React, {useContext}from "react";
 import "./Dashboard.css";
 import Pinknavbutton from "../../Components/Pinknav/Pinknav-button";
+import {AuthContext} from "../../context/AuthContext";
+import FormPage from "../Form/formPage";
 
 
 
 function DashboardPage() {
+    const { username } = useContext(AuthContext);
+    const formName = localStorage.getItem("FormProjectnaam")
+
     return (
+
 <>
-        <header>
+      <div className="body--flex">
 
-            <Pinknavbutton
 
-                title='Welkom User'
-            />
-
-        </header>
 
     <div className='inner-container-left dashboard' >
         <h1> Dashboard </h1>
-        <h2> Overzicht Projecten</h2>
-    </div>
 
-    <section className="inner-container-left project-overzicht">
+        <h2> Overzicht Projecten</h2>
+
+
+    <section className="project-overzicht">
 
         <Projectline
-            title="Titel van het project van het project"
+            title={formName}
         />
 
         <Projectline
@@ -74,6 +76,17 @@ function DashboardPage() {
         />
 
     </section>
+    </div>
+
+          <div className= "pink--right">
+
+              <Pinknavbutton
+
+                  title= {username}
+              />
+          </div>
+
+      </div>
 </>
 );
 }

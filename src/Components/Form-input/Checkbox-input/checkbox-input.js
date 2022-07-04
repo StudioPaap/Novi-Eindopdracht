@@ -1,6 +1,7 @@
 import React from "react";
 import FormFieldText from "../text-input/form field text";
 import "./Checkbox-input.css"
+import {useState} from "@types/react";
 
 
 
@@ -9,7 +10,7 @@ function CheckboxInputRow ({title, hourAmount, name, register}){
     return (
         <>
 
-
+<div c></div>
             <label className="container col1">
         {title}
             <input type="checkbox"

@@ -32,15 +32,45 @@ h2{
 
 
 /* ---------- Layout ----------*/
+
+
+/* voor de parent (body)*/
+
+.body--flex{
+    display: flex;
+    width: 100vw;
+    border: blue 2px solid;
+}
+
 .inner-container-left{
-    position: relative;
-    flex-basis: 700px;
     margin-left: 50px;
-    margin-right: 35%;
+    margin-right: 5%;
+    flex-basis: 100%;
+    flex-grow: 1;
+    flex-shrink: 2;
+    border: solid 2px yellow;
 }
 
 .inner-container-right{
-    flex-basis: 800px;
     margin-right: 50px;
-    margin-left: 35%;
+    margin-left: 5%;
+    flex-basis: 100%;
+    flex-grow: 1;
+    flex-shrink: 2;
+    border: solid 2px yellow;
+
+}
+
+.pink--left{
+    flex-basis: 450px;
+    flex-shrink: 0;
+    border: solid 2px;
+}
+
+.pink--right{
+    flex-basis: 450px;
+    flex-shrink: 0;
+    border: solid 2px;
+    display: flex;
+    justify-content: end;
 }
