@@ -1,0 +1,38 @@
+.date-input{
+    display: flex;
+    justify-content: space-between;
+    max-width: 510px;
+}
+.container-date-input{
+    display: flex;
+}
+
+.date-input p{
+    color: red;
+    font-size: 12px;
+    margin-top: -20px;
+
+}
+
+input[name="Year"]{
+    width: 200px;
+    margin-right: 5px;
+
+}
+
+input[name="month"]{
+    width: 100px;
+    margin-right: 5px;
+
+}
+
+input[name="day"]{
+    width: 100px;
+    margin-right: 5px;
+
+}
+
+.titelDate{
+    color: var(--color-pink);
+    font-weight:bold;
+}

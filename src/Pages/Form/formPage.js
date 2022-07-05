@@ -4,12 +4,13 @@ import FormFieldText from "../../Components/Form-input/text-input/form field tex
 import ButtonBasic from "../../Components/Buttons/button";
 import PinkNavLog from "../../Components/Pinknav/PinkNavLog";
 import Titlesection from "../../Components/Titlesection/Titlesection";
-import Datenow from "../../Components/Form-input/Date input/Date";
+import Date from "../../Components/Form-input/Date input/Date";
 import ButtonRadio from "../../Components/Buttons/button radio/button-radio";
 import CheckboxSingle from "../../Components/Form-input/Checkbox-input-single/Checkbox-single";
 import {useForm} from 'react-hook-form'
 import {Link} from "react-router-dom";
 import Weather from "../Weather/Weather";
+import Test from "../Test pagina/test";
 
 function FormPage() {
     const [hour, setHour] = useState(0)
@@ -130,14 +131,23 @@ function FormPage() {
                                     title="Digital"/>
                             </div>
                         </section>
+                    </form>
 
                         {/*Hier staat de sectie Deadlines*/}
                         <section>
                             <Titlesection
                                 title="Deadlines"/>
-                            <Datenow/>
+                            <Test
+                            title="Deadline eerste versie"/>
+                            <Test
+                                title="Deadline eerste versie"/>
+                            <Test
+                                title="Deadline Drukker"/>
+
 
                         </section>
+
+                    <form onBlur={handleSubmit(onFormSubmit)}>
                         {/*Hier staat de sectie Branding bedrijf*/}
                         <section>
                             <Titlesection title="Branding bedrijf"/>
