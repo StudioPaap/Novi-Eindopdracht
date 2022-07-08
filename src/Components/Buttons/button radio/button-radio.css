@@ -13,7 +13,7 @@
     border-radius: 10px;
 }
 
-.box:active{
+.box:active {
     transform: translate(0, 20px);
     left: 0;
     right: 0;
@@ -21,17 +21,18 @@
     color: white;
 
 }
-.box:checked{
+
+.box:checked {
     background-color: var(--color-purple);
     color: white;
 }
 
-p Link{
+p Link {
     color: var(--color-pink);
     font-weight: bold;
 }
 
-p Link:visited{
+p Link:visited {
     color: var(--color-pink);
     font-weight: bold;
 }

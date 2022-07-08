@@ -40,7 +40,7 @@ function InlogPage() {
                         id="email-field"
                         name="email"
                         value={email}
-                        c
+
                     />
                 </label>
 

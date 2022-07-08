@@ -3,14 +3,13 @@ import logo from "./Logo-w.png"
 import "./pinknav.css"
 import Titlesection from "../Titlesection/Titlesection";
 import ButtonBasic from "../Buttons/button";
-import loadbar from"./loadbar300px.png";
 import Scrollindicator from "../scrollindicator/scrollindicator";
 
 function PinknavLog() {
     return (
         <div className='pink-nav-left'>
 
-            <img className='foto-container' src={logo}/>
+            <img className='foto-container' src={logo} alt="LogoD&B"/>
 
 <section className="section-log">
             <div className="pink-title">

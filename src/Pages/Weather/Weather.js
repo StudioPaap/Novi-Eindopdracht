@@ -4,7 +4,7 @@ import PlaceWeatherInput from "../../Components/Form-input/Place-weather input/P
 import kelvinToCelsius from "../../Helpers/KelvinToCelsius/KelvinToCelsius";
 import "./Weather.css"
 
-const apiKey = 'b0897ee5497502fd0ef07dba8c99c7e3';
+const apiKey = process.env.REACT_WEATHER_API_KEY;
 
 function Weather() {
     const [weatherData, setWeatherData] = useState({});
@@ -48,8 +48,8 @@ function Weather() {
             {Object.keys(weatherData).length > 0 &&
                 <>
                     <div className="weather-result">
-                    <h2>{weatherData.weather[0].description}</h2>
-                    <h1>{kelvinToCelsius(weatherData.main.temp)}</h1>
+                        <h2>{weatherData.weather[0].description}</h2>
+                        <h1>{kelvinToCelsius(weatherData.main.temp)}</h1>
                     </div>
                 </>
             }

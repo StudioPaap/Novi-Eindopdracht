@@ -1,10 +1,9 @@
-
 /* ---------- Global Styles ----------*/
 
-*{
+* {
     box-sizing: border-box;
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
 }
 
 /* ---------- Text ----------*/
@@ -12,14 +11,17 @@
 body {
     font-family: Poppins, Arial, SansSerif;
 }
-h1{
+
+h1 {
     color: var(--color-pink);
     font-size: 48px;
     margin-top: 50px;
 }
-h2{
+
+h2 {
     color: var(--color-purple);
 }
+
 /* ---------- color ----------*/
 :root {
     --color-pink: #e20074;
@@ -36,13 +38,13 @@ h2{
 
 /* voor de parent (body)*/
 
-.body--flex{
+.body--flex {
     display: flex;
     width: 100vw;
     border: blue 2px solid;
 }
 
-.inner-container-left{
+.inner-container-left {
     margin-left: 50px;
     margin-right: 5%;
     flex-basis: 100%;
@@ -51,7 +53,7 @@ h2{
     border: solid 2px yellow;
 }
 
-.inner-container-right{
+.inner-container-right {
     margin-right: 50px;
     margin-left: 5%;
     flex-basis: 100%;
@@ -61,13 +63,13 @@ h2{
 
 }
 
-.pink--left{
+.pink--left {
     flex-basis: 450px;
     flex-shrink: 0;
     border: solid 2px;
 }
 
-.pink--right{
+.pink--right {
     flex-basis: 450px;
     flex-shrink: 0;
     border: solid 2px;

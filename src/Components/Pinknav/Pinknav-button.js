@@ -5,16 +5,21 @@ import ButtonBasic from "../Buttons/button";
 import {Link} from "react-router-dom";
 
 export default function Pinknavbutton({title}) {
-    return(
-        <div className= 'pink-nav'>
+    return (
+        <div className='pink-nav'>
             <h1> {title} </h1>
-            <img className='foto-container' src= {logo}/>
+            <img className='foto-container' src={logo} alt="Logo D&B"/>
 
             <Link to="/bestellijst">
+                <ButtonBasic
+                    title="Nieuw project">
+                </ButtonBasic>
+
+            </Link>
+
             <ButtonBasic
-            title="Nieuw project">
+                title="Uitloggen">
             </ButtonBasic>
-                </Link>
         </div>
 
 

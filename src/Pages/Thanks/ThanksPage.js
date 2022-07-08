@@ -43,7 +43,7 @@ function ThanksPage() {
                 {compliment && <>
                     <div className="compliment--text"> <h2>{compliment}</h2></div>
                 </> }
-                <img src={spiegel}/>;
+                <img src={spiegel} alt="Spiegel"/>;
 
                 <section className="Button--beneden">
                     <Link to="/">

@@ -1,6 +1,6 @@
-import React, {useState} from "react";
+import React from "react";
 import './Projectline.css';
-import logo from "./ster-paars.svg"
+import star from "./ster-paars.svg"
 
 
 
@@ -14,7 +14,7 @@ function Projectline({title,  datum}){
 
             <div className="project-line">
                 <div className="project-title">
-                    <img className='star' src={logo}/>
+                    <img className='star' src={star} alt="sterlogo"/>
                     <h2>{title}</h2>
 
                     <h3> {datum}</h3>

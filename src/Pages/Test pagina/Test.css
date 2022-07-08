@@ -1,35 +1,35 @@
-.date-input{
+.date-input {
     display: flex;
     justify-content: space-between;
     max-width: 510px;
 }
 
-.date-input p{
+.date-input p {
     color: red;
     font-size: 12px;
     margin-top: -20px;
 
 }
 
- input[name="Year"]{
+input[name="Year"] {
     width: 200px;
     margin-right: 5px;
 
 }
 
-input[name="month"]{
+input[name="month"] {
     width: 100px;
     margin-right: 5px;
 
 }
 
-input[name="day"]{
+input[name="day"] {
     width: 100px;
     margin-right: 5px;
 
 }
 
-.titelDate{
+.titelDate {
     color: var(--color-pink);
-font-weight:bold;
+    font-weight: bold;
 }

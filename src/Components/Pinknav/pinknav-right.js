@@ -6,7 +6,7 @@ function Pinknav({title}) {
     return (
         <div className='pink-nav'>
             <h1> {title} </h1>
-            <img className='foto-container' src={logo}/>
+            <img className='foto-container' src={logo} alt="Logo D&B"/>
         </div>
 
     )

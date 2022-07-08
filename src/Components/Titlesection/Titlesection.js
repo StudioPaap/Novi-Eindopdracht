@@ -2,10 +2,10 @@ import React from "react";
 import star from "./ster-paars.svg"
 import "./Titlesection.css"
 
-function Titlesection({title}){
-    return(
+function Titlesection({title}) {
+    return (
         <div className='title-section'>
-            <img src={star} />
+            <img src={star} alt="star"/>
             <h3>{title}</h3>
         </div>
     )

@@ -4,7 +4,6 @@ import FormFieldText from "../../Components/Form-input/text-input/form field tex
 import ButtonBasic from "../../Components/Buttons/button";
 import PinkNavLog from "../../Components/Pinknav/PinkNavLog";
 import Titlesection from "../../Components/Titlesection/Titlesection";
-import Date from "../../Components/Form-input/Date input/Date";
 import ButtonRadio from "../../Components/Buttons/button radio/button-radio";
 import CheckboxSingle from "../../Components/Form-input/Checkbox-input-single/Checkbox-single";
 import {useForm} from 'react-hook-form'
@@ -16,8 +15,7 @@ function FormPage() {
     const [hour, setHour] = useState(0)
     const {register, handleSubmit} = useForm();
 
-    {/*Hier staat mijn functie om de uren data op te schrijven*/
-    }
+
 
     function onFormSubmit(data) {
         const uren = data.uren;
@@ -27,9 +25,9 @@ function FormPage() {
         });
         const SumHour = hourNumberArray.reduce((a, b) => a + b, 0)
         setHour(SumHour);
-        localStorage.setItem("FormHour",SumHour);
-        localStorage.setItem("FormProjectnaam",data.Projectnaam);
-        localStorage.setItem("FormDate",data.Date);
+        localStorage.setItem("FormHour", SumHour);
+        localStorage.setItem("FormProjectnaam", data.Projectnaam);
+        localStorage.setItem("FormDate", data.Date);
 
     }
 
@@ -133,19 +131,19 @@ function FormPage() {
                         </section>
                     </form>
 
-                        {/*Hier staat de sectie Deadlines*/}
-                        <section>
-                            <Titlesection
-                                title="Deadlines"/>
-                            <Test
+                    {/*Hier staat de sectie Deadlines*/}
+                    <section>
+                        <Titlesection
+                            title="Deadlines"/>
+                        <Test
                             title="Deadline eerste versie"/>
-                            <Test
-                                title="Deadline eerste versie"/>
-                            <Test
-                                title="Deadline Drukker"/>
+                        <Test
+                            title="Deadline eerste versie"/>
+                        <Test
+                            title="Deadline Drukker"/>
 
 
-                        </section>
+                    </section>
 
                     <form onBlur={handleSubmit(onFormSubmit)}>
                         {/*Hier staat de sectie Branding bedrijf*/}
@@ -252,26 +250,26 @@ function FormPage() {
                                 <h4 className="col4"> Aantal uur</h4>
 
                             </div>
-                           <div className="layout-check">
-                            <label className="container col1">
-                                Uitnodiging/STD
-                                <input type="checkbox"
-                                       value="5"
-                                       {...register("uren")}/>
-                                <span className="checkmark"/>
-                            </label>
+                            <div className="layout-check">
+                                <label className="container col1">
+                                    Uitnodiging/STD
+                                    <input type="checkbox"
+                                           value="5"
+                                           {...register("uren")}/>
+                                    <span className="checkmark"/>
+                                </label>
 
                                 <label className="col2">
                                     <input
                                         type="text"/>
                                 </label>
-                            <label className="col3">
-                                <input
-                                    type="text"/>
-                            </label>
-                            <p className="col4">5 uur</p>
+                                <label className="col3">
+                                    <input
+                                        type="text"/>
+                                </label>
+                                <p className="col4">5 uur</p>
 
-                        </div>
+                            </div>
                             <div className="layout-check">
                                 <label className="container col1">
                                     Banner email
@@ -295,7 +293,7 @@ function FormPage() {
                             </div>
                             <div className="layout-check">
                                 <label className="container col1">
-                                  Webpagina Banner
+                                    Webpagina Banner
 
                                     <input type="checkbox"
                                            value="2"
@@ -662,6 +660,6 @@ function FormPage() {
 
 
     )
-};
+}
 
 export default FormPage

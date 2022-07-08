@@ -1,22 +1,21 @@
-
 /* ----- PINKNAV-right ----- */
 
 
-
-.pink-nav{
+.pink-nav {
     background-color: var(--color-pink);
-    padding: 50px 50px ;
+    padding: 50px 50px;
     min-height: 600px;
     max-height: 600px;
     flex-shrink: 2;
-    border-radius: 20px 0px 0px 20px;
-    -webkit-box-shadow: -7px 10px 29px 8px rgba(244,154,193,0.79);
-    box-shadow: -7px 10px 29px 8px rgba(244,154,193,0.79);
+    border-radius: 20px 0 0 20px;
+    -webkit-box-shadow: -7px 10px 29px 8px rgba(244, 154, 193, 0.79);
+    box-shadow: -7px 10px 29px 8px rgba(244, 154, 193, 0.79);
     position: fixed;
     z-index: 1;
     display: flex;
     flex-direction: column;
 }
+
 .pink-nav h1 {
     color: white;
     size: 32px;
@@ -32,11 +31,12 @@
     font-weight: bold;
     padding: 10px 20px;
     border-radius: 10px;
-    margin-top:50%;
+    margin-top: 50%;
     box-shadow: none;
 
 }
-.foto-container{
+
+.foto-container {
     max-width: 300px;
     height: auto;
 }
@@ -44,11 +44,11 @@
 /* ----- PINKNAV-left ----- */
 .pink-nav-left {
     background-color: var(--color-pink);
-    padding: 50px 50px ;
+    padding: 50px 50px;
     flex-basis: 500px;
     flex-shrink: 2;
     min-height: 600px;
-    border-radius: 0px 20px 20px 0px;
+    border-radius: 0 20px 20px 0;
     box-shadow: 7px -10px 29px 8px rgba(244, 154, 193, 0.79);
     position: fixed;
     z-index: 1;
@@ -56,39 +56,37 @@
     flex-direction: column;
 }
 
-.pink-title h3{
+.pink-title h3 {
     font-size: 24px;
     color: white;
 
 }
 
-.pink-title img{
+.pink-title img {
     width: 20px;
 }
 
 
-
-
 /* ----- PINKNAV-log ----- */
 
-.section-log{
+.section-log {
     display: flex;
 
 }
 
-.section-log h3{
+.section-log h3 {
     font-size: 20px;
     margin-bottom: 10px;
 }
 
-.button-log button{
+.button-log button {
     color: var(--color-pink);
     background-color: white;
-    box-shadow: 3px 3px 12px 2px rgba(79,41,68,0.62);
+    box-shadow: 3px 3px 12px 2px rgba(79, 41, 68, 0.62);
     margin-top: 20px;
 }
 
-.progressbar-container{
+.progressbar-container {
     padding-left: 10px;
 
 

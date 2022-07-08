@@ -1,4 +1,4 @@
-.project-line{
+.project-line {
 
     display: flex;
     flex-direction: row;
@@ -8,22 +8,23 @@
 
 }
 
-.star{
+.star {
     max-height: 30px;
 }
 
-.project-title{
+.project-title {
     display: flex;
     flex-basis: 80%
 
 }
-.project-title h3{
+
+.project-title h3 {
 
     margin-left: 20px;
 
 }
 
-.project-title h2{
+.project-title h2 {
     margin-left: 30px;
     color: var(--color-purple);
 
@@ -36,7 +37,7 @@
     border: none;
     border-radius: 5px;
     padding: 10px;
-    box-shadow: 3px 3px 12px 2px rgba(79,41,68,0.62);
+    box-shadow: 3px 3px 12px 2px rgba(79, 41, 68, 0.62);
     margin-left: 30px;
     font-weight: bold;
     font-size: 0.7rem;

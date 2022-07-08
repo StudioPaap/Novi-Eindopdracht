@@ -57,7 +57,6 @@ body {
     margin-left: 30px;
 }
 
-
 .layout-check {
     max-width: 800px;
     display: grid;
@@ -65,23 +64,20 @@ body {
     grid-column-gap: 6%;
     color: var(--color-pink);
     height: auto;
-
-
 }
-
 
 .col1 {
     padding-left: 35px;
 }
 
-.col2 input{
+.col2 input {
     width: 100%;
-    margin: 0px;
 }
 
-.col3 input{
+.col3 input {
     width: 100%;
 }
+
 .col4 {
     display: flex;
     justify-content: end;

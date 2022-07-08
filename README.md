@@ -45,6 +45,16 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
+##API keys
+Om de API keys te kunnen gebruiken waarvan deze app gebruik maakt kun je een eigen .env file aanmaken. 
+De API key variabele komen voor op het component Weather.js en Date.js.
+voor Weather.js heb je deze variabele:
+####REACT_WEATHER_API_KEY=
+van de website: https://home.openweathermap.org/  Hier kan je je eigen key krijgen door je aan te melden.
+
+Voor de file Date.js heb je deze variabel nodig:
+####REACT_DATE_API_KEY=
+van de website: https://rapidapi.com/joursouvres-api/api/working-days/  Hier kan je je eigen key krijgen door je aan te melden.
 ### Code Splitting
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
