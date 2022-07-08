@@ -1,4 +1,4 @@
-import logo from "./Logo-w.png";
+import logo from "../../assets/Logo-w.png";
 import {Link} from "react-router-dom";
 import ButtonBasic from "../Buttons/button";
 import React from "@types/react";

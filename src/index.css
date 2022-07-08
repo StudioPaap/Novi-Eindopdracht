@@ -41,7 +41,6 @@ h2 {
 .body--flex {
     display: flex;
     width: 100vw;
-    border: blue 2px solid;
 }
 
 .inner-container-left {
@@ -50,7 +49,7 @@ h2 {
     flex-basis: 100%;
     flex-grow: 1;
     flex-shrink: 2;
-    border: solid 2px yellow;
+
 }
 
 .inner-container-right {
@@ -59,20 +58,18 @@ h2 {
     flex-basis: 100%;
     flex-grow: 1;
     flex-shrink: 2;
-    border: solid 2px yellow;
+
 
 }
 
 .pink--left {
     flex-basis: 450px;
     flex-shrink: 0;
-    border: solid 2px;
 }
 
 .pink--right {
     flex-basis: 450px;
     flex-shrink: 0;
-    border: solid 2px;
     display: flex;
     justify-content: end;
 }

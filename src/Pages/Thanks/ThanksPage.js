@@ -4,7 +4,7 @@ import axios from "axios";
 import PinknavRight from "../../Components/Pinknav/pinknav-right";
 import ButtonBasic from "../../Components/Buttons/button";
 import {Link} from "react-router-dom";
-import spiegel from "./Spiegel.png"
+import spiegel from "../../assets/Spiegel.png"
 
 
 function ThanksPage() {

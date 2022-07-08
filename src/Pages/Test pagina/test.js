@@ -3,12 +3,12 @@ import {useForm} from 'react-hook-form'
 import axios from "axios";
 import "./Test.css"
 
+
 function Test({title}) {
     const {handleSubmit, register, formState: {errors}} = useForm()
     const current = new Date();
     const date = `${current.getFullYear()}-0${current.getMonth() + 1}-0${current.getDate()}`;
     const [workingday, setWorkingdays] = useState(0);
-
     const [endDate, setDateEvent] = useState(date)
 
     function onFormSubmit(data) {
@@ -19,39 +19,44 @@ function Test({title}) {
 
 
     useEffect(() => {
-        const dateApiKey = process.env.REACT_DATE_API_KEY
-        const source = axios.CancelToken.source();
 
-        const options = {
-            method: 'GET',
-            url: 'https://working-days.p.rapidapi.com/analyse',
-            params: {
-                country_code: 'NL',
-                start_date: date,
-                end_date: endDate,
-            },
-            headers: {
-                'X-RapidAPI-Key': dateApiKey,
-                'X-RapidAPI-Host': 'working-days.p.rapidapi.com',
-                cancelToken: source.token,
+        async function fetchWorkingday()
+        {
+
+            const dateApiKey = process.env.REACT_DATE_API_KEY
+            const source = axios.CancelToken.source();
+            console.log(dateApiKey)
+
+            try {
+                const response = await axios.get(`https://working-days.p.rapidapi.com/analyse`, {
+                    params: {
+                        country_code: 'NL',
+                        start_date: date,
+                        end_date: endDate,
+                    },
+                    headers: {
+                        'X-RapidAPI-Key': "2c5d0969dcmsh71b46a2200837b9p183a69jsn4e2a005042d5",
+                        'X-RapidAPI-Host': 'working-days.p.rapidapi.com',
+                        cancelToken: source.token,
+                    },
+                } );
+
+                console.log(response.data.result.working_days.total);
+                const workdaysTotal = response.data.result.working_days.total;
+                setWorkingdays(workdaysTotal);
+
+                return function cleanup() {
+                    source.cancel();
+                }
+            } catch (e) {
+                console.error(e);
             }
-        };
+        }
 
-        axios.request(options).then(function (response) {
-
-            console.log(response.data.result.working_days.total);
-            const workdaysTotal = response.data.result.working_days.total;
-            setWorkingdays(workdaysTotal);
-
-            return function cleanup() {
-                source.cancel();
-            }
-        }).catch(function (error) {
-            console.error(error);
-        });
-
-
-    }, [date,endDate]);
+        if (endDate) {
+            fetchWorkingday();
+        }
+    }, [endDate]);
 
 
     return (
@@ -135,11 +140,16 @@ function Test({title}) {
                             />
                             {errors.Year && <p>{errors.Year.message}</p>}
                         </div>
+                        {Object.keys(workingday).length > 1 &&
+                            <>
+                                <p> Er zijn nog {workingday} werkdagen tot de deadline!</p>
+                            </>
+                        }
+
                     </div>
 
                 </form>
 
-                <p> Er zijn nog {workingday} dag(en) tot de deadline!</p>
             </div>
         </>
     );

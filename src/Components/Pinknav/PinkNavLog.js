@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "./Logo-w.png"
+import logo from "../../assets/Logo-w.png"
 import "./pinknav.css"
 import Titlesection from "../Titlesection/Titlesection";
 import ButtonBasic from "../Buttons/button";

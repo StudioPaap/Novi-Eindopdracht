@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import React, {useEffect, useState} from 'react';
+import {Link, useHistory} from 'react-router-dom';
 import axios from 'axios';
 
 function RegisterPage() {
@@ -13,48 +13,46 @@ function RegisterPage() {
     const [error, toggleError] = useState(false);
     const [loading, toggleLoading] = useState(false);
     const history = useHistory()
-        const source = axios.CancelToken.source();
+    const source = axios.CancelToken.source();
 
 
-        useEffect(() => {
-            return function cleanup() {
-                source.cancel();
-            }
-        }, []);
+    useEffect(() => {
+        return function cleanup() {
+            source.cancel();
+        }
+    }, []);
 
-        async function handleSubmit(e) {
-            e.preventDefault();
-            toggleError(false);
-            toggleLoading(true);
+    async function handleSubmit(data) {
+        console.log(data)
+        toggleError(false);
+        toggleLoading(true);
 
-            try {
-                await axios.post('https://frontend-educational-backend.herokuapp.com/api/auth/signup', {
-                    email: email,
-                    password: password,
-                    username: username,
-                    role: role,
-                }, {
-                    cancelToken: source.token,
-                });
+        try {
+            await axios.post('https://frontend-educational-backend.herokuapp.com/api/auth/signup', {
+                email: email,
+                password: password,
+                username: username,
+                role: role,
+            }, {
+                cancelToken: source.token,
+            });
 
-                // als alles goed gegaan is, linken we dyoor naar de login-pagina
-                history.push('/inlog');
-            } catch (e) {
-                console.error(e);
-                toggleError(true);
-            }
-
-            toggleLoading(false);
+            // als alles goed gegaan is, linken we door naar de login-pagina
+            history.push('/inlog');
+        } catch (e) {
+            console.error(e);
+            toggleError(true);
         }
 
+        toggleLoading(false);
+    }
 
 
-
-        return (
+    return (
         <>
             <h1>Registreren</h1>
 
-            <form onSubmit={handleSubmit}>
+            <form onBlur={handleSubmit}>
                 <label htmlFor="email-field">
                     Emailadres:
                     <input
@@ -87,10 +85,10 @@ function RegisterPage() {
                     />
 
                     <div className="buttonrow">
-                        <label htmlFor= "Role-button">
+                        <label htmlFor="Role-button">
                             <input type="radio"
                                    id="Role-button"
-                                   value= "user"
+                                   value="user"
                                    onChange={(e) => setRole(e.target.value)}
                             />
                             <div className="box">
@@ -98,7 +96,7 @@ function RegisterPage() {
                             </div>
                         </label>
 
-                        <label htmlFor= "Role-button2">
+                        <label htmlFor="Role-button2">
                             <input type="radio"
                                    id="Role-button2"
                                    value="admin"
@@ -108,7 +106,6 @@ function RegisterPage() {
                                 <span>Studio</span>
                             </div>
                         </label>
-
 
 
                     </div>

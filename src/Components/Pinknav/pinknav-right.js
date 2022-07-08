@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "./Logo-w.png"
+import logo from "../../assets/Logo-w.png"
 import "./pinknav.css"
 
 function Pinknav({title}) {

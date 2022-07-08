@@ -39,7 +39,7 @@ function InlogPage() {
                         type="email"
                         id="email-field"
                         name="email"
-                        value={email}
+
 
                     />
                 </label>
@@ -50,8 +50,7 @@ function InlogPage() {
                         type="password"
                         id="password-field"
                         name="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
+
                     />
                 </label>
                 {error && <p className="error">Combinatie van emailadres en wachtwoord is onjuist</p>}

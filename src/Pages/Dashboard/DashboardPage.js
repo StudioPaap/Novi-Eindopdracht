@@ -2,13 +2,14 @@ import Projectline from "../../Components/Project-line/Projectline";
 import React, {useContext} from "react";
 import "./Dashboard.css";
 import Pinknavbutton from "../../Components/Pinknav/Pinknav-button";
-import {AuthContext} from "../../context/AuthContext";
-
+import Uitlog from "../../Components/Uitlog/uitlog";
+import {AuthContext} from "../../context/AuthContext--test";
 
 function DashboardPage() {
 
 
-    const {username} = useContext(AuthContext);
+    const {user:{ username }} = useContext(AuthContext);
+    console.log(username);
     const formName = localStorage.getItem("FormProjectnaam")
     const formDate = localStorage.getItem("FormDate")
 
@@ -46,13 +47,7 @@ function DashboardPage() {
                             title="Titel van het project van het project"
                         />
 
-                        <Projectline
-                            title="Titel van het project van het project  2"
-                        />
-
-                        <Projectline
-                            title="Titel van het project van het project  3"
-                        />
+<Uitlog/>
 
 
                     </section>
