@@ -9,10 +9,12 @@
     margin-top: 50px;
 }
 .Button--beneden{
-    position: fixed;
-    bottom: 100px;
-    left: 50px;
 
+
+}
+
+.thanks h2{
+    color: var(--color-purple);
 }
 
 .compliment--text h2{

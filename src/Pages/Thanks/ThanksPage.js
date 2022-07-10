@@ -1,13 +1,14 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState, useContext} from "react";
 import "./Thanks.css";
 import axios from "axios";
 import PinknavRight from "../../Components/Pinknav/pinknav-right";
 import ButtonBasic from "../../Components/Buttons/button";
-import {Link} from "react-router-dom";
 import spiegel from "../../assets/Spiegel.png"
+import {AuthContext} from "../../context/AuthContext--test";
 
 
 function ThanksPage() {
+    const {user: {username}} = useContext(AuthContext);
     const [ compliment, setCompliment]  = useState()
 
     useEffect(() => {
@@ -37,20 +38,20 @@ function ThanksPage() {
             <main className="inner-container-right thanks">
 
                 <h2>
-                    Bedankt!!
+                    Bedankt {username}!!
                     Hier een mooie boodschap voor jou :
                 </h2>
                 {compliment && <>
                     <div className="compliment--text"> <h2>{compliment}</h2></div>
                 </> }
                 <img src={spiegel} alt="Spiegel"/>;
-
                 <section className="Button--beneden">
-                    <Link to="/">
+
                         <ButtonBasic
+                            link="dashboard"
                             title="Terug naar Dashboard"
                         />
-                    </Link>
+
                 </section>
 
 
@@ -58,7 +59,7 @@ function ThanksPage() {
                 <div className="pink--right">
                     <PinknavRight
 
-                        title='Thanks User'
+                        title="Bedankt!"
                     />
                 </div>
             </div>

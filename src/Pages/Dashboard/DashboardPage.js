@@ -2,18 +2,32 @@ import Projectline from "../../Components/Project-line/Projectline";
 import React, {useContext} from "react";
 import "./Dashboard.css";
 import Pinknavbutton from "../../Components/Pinknav/Pinknav-button";
-import Uitlog from "../../Components/Uitlog/uitlog";
 import {AuthContext} from "../../context/AuthContext--test";
+import ButtonBasic from "../../Components/Buttons/button";
 
 function DashboardPage() {
 
 
-    const {user:{ username }} = useContext(AuthContext);
+    const {user: {username}} = useContext(AuthContext);
     console.log(username);
     const formName = localStorage.getItem("FormProjectnaam")
-    const formDate = localStorage.getItem("FormDate")
+    const formDate = localStorage.getItem("Date")
+    const formUren = localStorage.getItem("Aantal uren")
 
+    function removeDataOld(){
+        // eslint-disable-next-line no-restricted-globals
+        confirm("Weet je zeker dat je dit bestand wilt verwijderen")
 
+    }
+
+    function removeData() {
+        // eslint-disable-next-line no-restricted-globals
+        confirm("Weet je zeker dat je dit bestand wilt verwijderen")
+        localStorage.removeItem('FormProjectnaam');
+        localStorage.removeItem('Date');
+        localStorage.removeItem('Aantal uren');
+
+    }
     return (
 
         <>
@@ -23,31 +37,40 @@ function DashboardPage() {
                 <div className='inner-container-left dashboard'>
                     <h1> Dashboard </h1>
 
-                    <h2> Overzicht Projecten</h2>
-
 
                     <section className="project-overzicht">
 
-                        <Projectline
-                            title={formName}
-                            datum={formDate}
-                        />
 
-                        <Projectline
-                            title="Project Wouterse"
-                            datum="02-10-2023"
-                        />
+                            {formName   &&
+                            <Projectline
+                                title={formName}
+                                datum={formDate}
+                                hour={formUren}
+                                action={removeData}
+                            />
+                            }
 
-                        <Projectline
-                            title="Lely Open dag"
-                            datum="04-07-2022"
-                        />
+                            <h2>Oude projecten</h2>
+                            <Projectline
+                                title="Project Wouterse"
+                                datum="02-10-2023"
+                                hour = "23"
+                                action={removeDataOld}
+                            />
 
-                        <Projectline
-                            title="Titel van het project van het project"
-                        />
+                            <Projectline
+                                title="Lely Open dag"
+                                datum="04-07-2022"
+                                hour = "16"
+                                action={removeDataOld}
+                            />
 
-<Uitlog/>
+                        <ButtonBasic
+                            title="Nieuw project"
+                            link="bestellijst">
+                        </ButtonBasic>
+
+
 
 
                     </section>

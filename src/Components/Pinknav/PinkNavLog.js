@@ -16,6 +16,9 @@ function PinknavLog() {
                 <Titlesection
                     title="Algemeen"/>
 
+                <Titlesection
+                    title="Deadlines"/>
+
 
                 <Titlesection
                     title="Voortraject"/>
@@ -28,9 +31,6 @@ function PinknavLog() {
                 <Titlesection
                     title="Grafisch drukwerk"/>
 
-
-                <Titlesection
-                    title="Details"/>
             </div>
     <div className="progressbar-container">
         <Scrollindicator/>

@@ -1,80 +1,123 @@
-# Getting Started with Create React App
+# Eindopdracht Frontend Anouk Paap
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Inleiding
+Voor de Frontend deeltijd Boothcamp voor Novi ontwierp en programmeerde ik deze app. 
+Mijn huidige functie is als Grafisch vormgever bij D&B eventmarketing. Het bedrijf organiseert voor bedrijven grote evenementen waar ook veel grafisch werk voor nodig is. 
+Om er voor te zorgen dat Projectmanagers op tijd zijn met deze aanvragen en om uren in te schatten voor de projecten heb ik een interactieve design bestelllijst bedacht. 
+Je kunt in de app registreren, inloggen en een bestellijst invullen. Op de persoonlijke Dashboard-pagina wordt een lijst weergeven van eerdere ingevulde bestellijsten. 
+Het formulier in de bestellijst werkt met checkboxes die automatisch bijhoudt en berekent hoeveel uren het in totaal zijn. 
 
-## Available Scripts
+In deze handleiding wordt er uitgelegd welke keys je nodig hebt voor de API key variabel, welke gegevens de backend-server ontvangt bij het inloggen en registreren 
+en welke npm installaties er nodig zijn om deze app te runnen.
 
-In the project directory, you can run:
 
-### `npm start`
+![screenshot](src/assets/screenshot.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Inhoud
+* [Inleiding](#Inleiding)
+* [API keys](#API en keys)
+    * [Weather app](#weather app)
+    * [Workingdays](#Workingdays)
+* [Inloggen en Registreren](#inloggen-en-registeren)
+* [Opstarten en installeren](#opstarten-en-installeren)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## API en keys
+Deze app haalt op bepaalde pagina's en in bepaalde componenten data op uit verschillende endpoints. 
+Om de API keys te kunnen gebruiken waarvan deze app gebruik maakt kun je een eigen .env file aanmaken en deze aan je .gitignore toevoegen. 
+
+De API key variabele komen voor op het component Weather.js en Date.js.
+
+### Weather app
+Om de endpoints op de Weather.js te kunnen bereiken heb je deze variabele nodig in je .env bestand:
+####REACT_APP_WEATHER_API_KEY=(eigen key)
+Van de website: https://home.openweathermap.org/  kun je je eigen key ontvangen. 
+Registreer je eerst.
+
+
+### Workingdays
+Om de endpoints op de Workingdays.js te kunnen bereiken heb je deze variabele nodig in je .env bestand:
+####REACT_DATE_API_KEY=
+van de website: https://rapidapi.com/joursouvres-api/api/working-days/   kun je je eigen key ontvangen.
+Registreer je eerst.
+
+
+
+## Inloggen en Registeren
+Om in te loggen en te registeren maakt deze app gebruik van de Novi backend. Hieronder wordt er uitgelegd welke data er wordt
+
+###Registreren
+Om POST request te maken gebruik je deze endpoint:
+####https://frontend-educational-backend.herokuapp.com/api/auth/signup
+De volgende data wordt meegegeven:
+
+```json
+{
+   "username": "naam",
+   "email" : "naam@email.nl",
+   "password" : "123456",
+   "role": ["user"]
+}
+```
+###Inloggen
+Om POST request te maken gebruik je deze endpoint:
+####https://frontend-educational-backend.herokuapp.com/api/auth/signin
+
+Het inloggen van een bestaande gebruiker kan alleen als deze al geregistreerd is. 
+Inloggen vereist de volgende informatie:
+
+```json
+{
+   "username": "user",
+   "password" : "123456"
+}
+```
+
+De response bevat een authorisatie-token (JWT) en alle gebruikersinformatie. Onderstaand voorbeeld laat de repsonse zien na het inloggen van een gebruiker met een admin-rol:
+
+```json
+{
+    "id": 6,
+    "username": "mod3",
+    "email": "mod3@novi.nl",
+    "roles": [
+        "ROLE_USER",
+        "ROLE_MODERATOR"
+    ],
+    "accessToken": "eyJhJIUzUxMiJ9.eyJzdWICJleQ0OTR9.AgP4vCsgw5TMj_AQAS-J8doHqADTA",
+    "tokenType": "Bearer"
+}
+```
+Er wordt verder in de app geen persoonlijke gegevens opgevraagd.
+
+
+
+
+## Opstarten en installeren
+In deze app kun je het volgende runnen:
+### `npm start` 
+In de terminal kun je de command invoeren en zal de app direct opstarten in de browser [http://localhost:3000](http://localhost:3000)
+De pagina herlaad als je wijzigingen maakt en de errors worden automatishc in de console gelogt.
 
 ### `npm run build`
+Pas je toe wanneer je nieuwe mappen toevoegt naast de src map. 
+Sluit wel eerst de app af met Ctr+C en start de app daarna weer op
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### `npm i file-saver`
+Installeer je omdat de filesaver op de Dasboard pagina wordt gebruikt. Zo blijven alle componenten goed werken.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### `install axios`
+Om verschillende data op te halen in onze app hebben we axios nodig voor onze 
+async functies, vergeet dus niet om deze ook te installeren. 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### `npm install react react-dom`
+Voor de router in deze app moet de react-dom worden geinstalleerd.
 
-### `npm run eject`
+### `npm install react-hook-form`
+Omdat deze app veel gebruik maakt van <form> moet de react-hook-form worden geinstalleerd.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-##API keys
-Om de API keys te kunnen gebruiken waarvan deze app gebruik maakt kun je een eigen .env file aanmaken. 
-De API key variabele komen voor op het component Weather.js en Date.js.
-voor Weather.js heb je deze variabele:
-####REACT_WEATHER_API_KEY=
-van de website: https://home.openweathermap.org/  Hier kan je je eigen key krijgen door je aan te melden.
-
-Voor de file Date.js heb je deze variabel nodig:
-####REACT_DATE_API_KEY=
-van de website: https://rapidapi.com/joursouvres-api/api/working-days/  Hier kan je je eigen key krijgen door je aan te melden.
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

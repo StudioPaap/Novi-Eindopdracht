@@ -1,0 +1,31 @@
+.home--background{
+    background-color: var(--color-pink);
+    border-radius: 15px;
+    max-width:80vw;
+    display: flex;
+    flex-direction: column;
+    padding: 50px 0 50px 5%;
+    box-shadow: 7px 10px 29px 8px rgba(244, 154, 193, 0.79);
+}
+
+.home--background h1{
+    color: white;
+    margin-top: 0;
+
+}
+.home--background img{
+    width:60%;
+}
+
+.body--flex--home{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+
+.home--button button{
+    margin: 50px
+}

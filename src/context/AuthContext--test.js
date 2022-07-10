@@ -13,81 +13,93 @@ function AuthContextProvider({children}) {
     });
     const history = useHistory();
 
-    // useEffect(() => {
-    //     const jwt = localStorage.getItem('token')
-    //     if (jwt) {
-    //         fetchUserData(jwt)
-    //     } else {
-    //         toggleAuth({
-    //             isAuth: false,
-    //             user: null,
-    //             status: 'done',
-    //         });
-    //     }
-    // }, [])
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        console.log(token)
 
-    function inlog(token) {
-        console.log("de user is ingelogd")
-        console.log(token);
-        const decodedToken = jwt_decode(token);
-        console.log(decodedToken);
-        const userId = decodedToken.sub;
-        console.log(userId);
-        localStorage.setItem('token', token);
+        if (token) {
+            async function getUserData() {
+                try {
+                    const response = await axios.get(`https://frontend-educational-backend.herokuapp.com/api/user/`, {
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Authorization": `Bearer ${token}`,
+                        }
+                    });
+                    console.log(response.data);
+                    toggleAuth({
+                        isAuth: true,
+                        status: "done",
+                        user:{email: response.data.email,
+                            username:response.data.username,
+                            id: response.data.id,
+                            roles: response.data.roles[0],
+                        }
+                    })
+                } catch (e) {
+                    toggleAuth({
+                       ...Auth,
+                        status: 'error'
+                    })
+                    localStorage.clear()
+                    console.error(e);
+                }
+
+            }
+            getUserData();}
+        else
+            {
+                toggleAuth({
+                    ...Auth,
+                    status: 'done'
+                })
+            }
+
+        },[]);
 
 
-    //     fetchUserData(jwt,'/')
-    // }
-    //
-    // async function fetchUserData(jwt, redirectUrl) {
-    //     try {
-    //         const data = await axios.get(`https://frontend-educational-backend.herokuapp.com/api/user`, {
-    //             headers: {
-    //                 "Content-Type": "application/json",
-    //                 "Authorization": `Bearer ${jwt}`,
-    //             }
-    //         })
+        function inlog(token) {
+            console.log("de user is ingelogd")
+            const decodedToken = jwt_decode(token);
+            const userId = decodedToken.sub;
+            localStorage.setItem('token', token)
+
             toggleAuth({
+                ...Auth,
                 isAuth: true,
                 status: 'done',
                 user: {
                     username: userId,
-                    // email: data.data.email,
-                    // id: data.data.id,
                 }
             });
-            history.push("/")
-        //     if (redirectUrl) {
-        //         history.push(redirectUrl)
-        //     }
-        // } catch (e) {
-        //     console.error(e)
-        // }
+            history.push("/dashboard")
+        }
+
+
+        function uitlog() {
+            toggleAuth({
+                isAuth: false,
+                user: null,
+                status: 'done'
+            })
+            localStorage.clear()
+            history.push('/')
+        }
+
+        const contextData = {
+            loggedIn: Auth.isAuth,
+            login: inlog,
+            logout: uitlog,
+            user: Auth.user,
+        }
+
+        return (
+            <AuthContext.Provider value={contextData}>
+                {Auth.status === "done" && children}
+                {Auth.status === "pending" && <p>Loading..</p>}
+                {Auth.status === "error" && <p>Er is iets is mis gegaan <link to="/inlog"> log je opnieuw in!</link></p> }
+            </AuthContext.Provider>
+        )
     }
 
-
-    function uitlog() {
-        toggleAuth({
-            isAuth: false,
-            user: null,
-            status: 'done'
-        })
-        localStorage.clear()
-        history.push('/')
-    }
-
-    const contextData = {
-        loggedIn: Auth.isAuth,
-        login: inlog,
-        logout: uitlog,
-        user: Auth.user,
-    }
-
-    return (
-        <AuthContext.Provider value={contextData}>
-            {children}
-        </AuthContext.Provider>
-    )
-}
-
-export default AuthContextProvider
+    export default AuthContextProvider

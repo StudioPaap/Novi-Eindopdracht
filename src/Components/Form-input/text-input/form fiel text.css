@@ -14,7 +14,7 @@ input {
     flex-direction: column;
     background-color: var(--color-light-pink);
     border: none;
-    width: 400px;
+    width: 300px;
     height: 30px;
     border-radius: 5px;
     margin-bottom: 25px;

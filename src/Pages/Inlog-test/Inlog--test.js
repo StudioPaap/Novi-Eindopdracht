@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, {useContext, useState} from "react";
 import {useForm} from "react-hook-form";
 import {Link} from "react-router-dom";
 import axios from "axios";
@@ -7,11 +7,13 @@ import PinknavRight from "../../Components/Pinknav/pinknav-right";
 import "./Inlog.css"
 
 function SignIn() {
-    const {register, handleSubmit} = useForm();
+    const {handleSubmit, register, formState: {errors}} = useForm()
     const {login} = useContext(AuthContext)
+    const [error, toggleError] = useState(false);
 
     async function handleLogin(data) {
         console.log(data)
+        toggleError(false);
         try {
             const result = await axios.post(`https://frontend-educational-backend.herokuapp.com/api/auth/signin`, {
                     username: data.username,
@@ -22,7 +24,9 @@ function SignIn() {
             login(result.data.accessToken)
 
         } catch (e) {
+            <p> Het wachtwoord en of de usernaam komen niet overeen</p>
             console.error(e)
+            toggleError(true);
         }
     }
 
@@ -48,10 +52,18 @@ function SignIn() {
                     <input
                         type="password"
                         id="form-wachtwoord"
-                        {...register("wachtwoord")}
+                        {...register("wachtwoord",
+                            {
+                                minLength: {
+                                    value: 6,
+                                    message: "Password moet uit 6 tekens bestaan"
+                                }
+                            },)}
                         placeholder="wachtwoord"
                     />
                 </label>
+                {errors.wachtwoord && <p>{errors.wachtwoord.message}</p>}
+                {error && <p className="error">Combinatie van emailadres en wachtwoord is onjuist</p>}
                 <button
                     type="submit"
                 >Inloggen

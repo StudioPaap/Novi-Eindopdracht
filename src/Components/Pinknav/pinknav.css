@@ -31,9 +31,12 @@
     font-weight: bold;
     padding: 10px 20px;
     border-radius: 10px;
-    margin-top: 50%;
+    margin-top: 25%;
     box-shadow: none;
 
+}
+.pink-nav h1{
+    font-size: 30px;
 }
 
 .foto-container {
