@@ -1,0 +1,14 @@
+.inlog {
+    margin-top: 50px;
+}
+
+.inlog form {
+    margin-top: 20px;
+}
+
+.inlog form p {
+    color: red;
+    font-size: 12px;
+    margin-top: -20px;
+    margin-bottom: 20px;
+}

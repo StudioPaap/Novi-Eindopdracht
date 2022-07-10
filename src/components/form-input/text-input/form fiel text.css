@@ -1,0 +1,10 @@
+.twoInputField {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.twoInputField input {
+    margin-right: 80px;
+    width: 250px;
+
+}

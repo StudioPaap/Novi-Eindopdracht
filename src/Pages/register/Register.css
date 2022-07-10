@@ -1,0 +1,64 @@
+.radiobutton--register {
+    display: flex;
+    width: 100%;
+}
+
+.radiobutton--register label {
+    font-weight: bold;
+    font-size: 15px;
+    color: var(--color-purple);
+}
+
+.radiobutton--register span {
+    margin-top: -40%;
+}
+
+.radio--register--row button {
+    margin-right: 50px;
+}
+
+form p {
+    font-size: 12px;
+    color: red;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+.box {
+    width: 150px;
+    height: 40px;
+    margin: 10px 80px 30px 0;
+    background-color: var(--color-light-pink);
+    transition: all 250ms ease;
+    will-change: transition;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.box:active {
+    transform: translate(0, 20px);
+    left: 0;
+    right: 0;
+    transition: all 300ms ease;
+    color: white;
+
+}
+
+.box:checked {
+    background-color: var(--color-purple);
+    color: white;
+}
+
+p Link {
+    color: var(--color-pink);
+    font-weight: bold;
+}
+
+p Link:visited {
+    color: var(--color-pink);
+    font-weight: bold;
+}

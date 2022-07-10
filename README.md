@@ -1,7 +1,7 @@
-# Eindopdracht Frontend Anouk Paap
+# Eindopdracht Frontend D&B Bestellijst
 
 ## Inleiding
-Voor de Frontend deeltijd Boothcamp voor Novi ontwierp en programmeerde ik deze app. 
+Voor de Frontend deeltijd Boothcamp voor Novi ontwierp en programmeerde ik deze app D&B Bestellijst. 
 Mijn huidige functie is als Grafisch vormgever bij D&B eventmarketing. Het bedrijf organiseert voor bedrijven grote evenementen waar ook veel grafisch werk voor nodig is. 
 Om er voor te zorgen dat Projectmanagers op tijd zijn met deze aanvragen en om uren in te schatten voor de projecten heb ik een interactieve design bestelllijst bedacht. 
 Je kunt in de app registreren, inloggen en een bestellijst invullen. Op de persoonlijke Dashboard-pagina wordt een lijst weergeven van eerdere ingevulde bestellijsten. 
@@ -24,21 +24,23 @@ en welke npm installaties er nodig zijn om deze app te runnen.
 
 
 ## API en keys
-Deze app haalt op bepaalde pagina's en in bepaalde componenten data op uit verschillende endpoints. 
+Deze app haalt op bepaalde pagina's en componenten data op uit verschillende endpoints. 
 Om de API keys te kunnen gebruiken waarvan deze app gebruik maakt kun je een eigen .env file aanmaken en deze aan je .gitignore toevoegen. 
 
 De API key variabele komen voor op het component Weather.js en Date.js.
 
 ### Weather app
 Om de endpoints op de Weather.js te kunnen bereiken heb je deze variabele nodig in je .env bestand:
-####REACT_APP_WEATHER_API_KEY=(eigen key)
+REACT_APP_WEATHER_API_KEY=(eigen key)
+
 Van de website: https://home.openweathermap.org/  kun je je eigen key ontvangen. 
 Registreer je eerst.
 
 
 ### Workingdays
 Om de endpoints op de Workingdays.js te kunnen bereiken heb je deze variabele nodig in je .env bestand:
-####REACT_DATE_API_KEY=
+REACT_APP_DATE_API_KEY=(eigen key)
+
 van de website: https://rapidapi.com/joursouvres-api/api/working-days/   kun je je eigen key ontvangen.
 Registreer je eerst.
 
@@ -49,7 +51,9 @@ Om in te loggen en te registeren maakt deze app gebruik van de Novi backend. Hie
 
 ###Registreren
 Om POST request te maken gebruik je deze endpoint:
-####https://frontend-educational-backend.herokuapp.com/api/auth/signup
+
+https://frontend-educational-backend.herokuapp.com/api/auth/signup
+
 De volgende data wordt meegegeven:
 
 ```json
@@ -62,7 +66,8 @@ De volgende data wordt meegegeven:
 ```
 ###Inloggen
 Om POST request te maken gebruik je deze endpoint:
-####https://frontend-educational-backend.herokuapp.com/api/auth/signin
+
+https://frontend-educational-backend.herokuapp.com/api/auth/signin
 
 Het inloggen van een bestaande gebruiker kan alleen als deze al geregistreerd is. 
 Inloggen vereist de volgende informatie:
@@ -104,10 +109,13 @@ De pagina herlaad als je wijzigingen maakt en de errors worden automatishc in de
 Pas je toe wanneer je nieuwe mappen toevoegt naast de src map. 
 Sluit wel eerst de app af met Ctr+C en start de app daarna weer op
 
+
+
+### En deze npm moet je installeren om met de app te kunnen werken.
 ### `npm i file-saver`
 Installeer je omdat de filesaver op de Dasboard pagina wordt gebruikt. Zo blijven alle componenten goed werken.
 
-### `install axios`
+### `npm install axios`
 Om verschillende data op te halen in onze app hebben we axios nodig voor onze 
 async functies, vergeet dus niet om deze ook te installeren. 
 
@@ -118,6 +126,8 @@ Voor de router in deze app moet de react-dom worden geinstalleerd.
 Omdat deze app veel gebruik maakt van <form> moet de react-hook-form worden geinstalleerd.
 
 
+### `npm install jwt-decode`
+Om de tokens de decoderen heb je de npm jwt-decode nodig.
 
 
-
+## Have fun and order :)

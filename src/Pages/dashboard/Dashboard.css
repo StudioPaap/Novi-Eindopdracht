@@ -1,0 +1,14 @@
+
+.dashboard h1 {
+    margin-left: 50px;
+}
+
+.project-overzicht h2 {
+    color: var(--color-purple);
+    margin-left: 50px;
+
+}
+
+.project-overzicht button {
+    margin-left: 50px;
+}

@@ -1,0 +1,11 @@
+.uitlog button {
+    font-size: 1.5rem;
+    border: none;
+    background-color: var(--color-light-pink);
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-top: 25%;
+    box-shadow: none;
+}
